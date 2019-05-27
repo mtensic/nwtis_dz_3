@@ -1,11 +1,13 @@
 package org.foi.nwtis.mtensic.web.zrna;
 
-
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import org.foi.nwtis.mtensic.web.ws.InformatorPutnika;
+import org.foi.nwtis.rest.klijenti.OSKlijent;
+import org.foi.nwtis.rest.podaci.AvionLeti;
 
 /**
  *
@@ -93,13 +95,19 @@ public class DodavanjeLetova implements Serializable {
 
     public String preuzmiLetove() {
         if (this.preuzetiPodatke) {
+            /*OSKlijent osk = new OSKlijent(username, password);
+            List<AvionLeti> departures = new ArrayList<AvionLeti>();
+            for (Aerodrom a : aerodromi) {
+                System.out.println("icao: " + a.getIcao() + ", pocetak: " + pocetakIntervala + ", kraj: " + krajIntervala);
+                departures = osk.getDepartures(a.getIcao(), pocetakIntervala, krajIntervala);
+            }*/
             //preuzmiLetoveOpenSky
             //preuzmiLetoveBazePodataka(this.odVremena, this.doVremena, this.odabraniAerodrom)
         } else {
             //preuzmiLetoveBazePodataka(this.odVremena, this.doVremena, this.odabraniAerodrom)
         }
     }
-    
+
     public String dodajLet(int id) {
         boolean letDodan = dodajLet(id);
         if (letDodan) {
