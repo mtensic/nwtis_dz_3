@@ -4,6 +4,18 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+    <context-param>
+        <param-name>os_apikey</param-name>
+        <param-value>be4fa2a2d2510d6e2cf2867366968142</param-value>
+    </context-param>  
+    <context-param>
+        <param-name>os_korisnik</param-name>
+        <param-value>mtensic</param-value>
+    </context-param>    
+    <context-param>
+        <param-name>os_lozinka</param-name>
+        <param-value>banana01111</param-value>
+    </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
