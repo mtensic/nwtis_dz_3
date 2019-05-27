@@ -59,7 +59,7 @@ public class FlightsFacade extends AbstractFacade<Flights> {
         cq.multiselect(sviLetovi, letovi);
         List<Predicate> uvjeti = new ArrayList<>();
         
-        uvjeti.add(cb.equal(letovi.get(Flights_.id), id));
+        uvjeti.add(cb.equal(letovi.get(Flights_.passanger), id));
         uvjeti.add(cb.equal(sviLetovi.get(Airplanes_.id),
                 letovi.get(Flights_.airplane)));
         uvjeti.add(cb.between(sviLetovi.get(Airplanes_.firstseen), odVremena, doVremena));
