@@ -21,3 +21,5 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/mtensic_zadaca_3/nbproject/private/
+/mtensic_zadaca_3_1/nbproject/private/
