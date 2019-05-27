@@ -1,3 +1,5 @@
+package org.foi.nwtis.mtensic.web.zrna;
+
 
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
