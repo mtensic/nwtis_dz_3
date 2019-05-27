@@ -44,7 +44,6 @@ public class AirplanesFacade extends AbstractFacade<Airplanes> {
     }
 
     public List<PodaciLeta> preuzmiLetove(String icao, int odVremena, int doVremena) {
-	 
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
         Root<Airplanes> sviLetovi = cq.from(Airplanes.class);
