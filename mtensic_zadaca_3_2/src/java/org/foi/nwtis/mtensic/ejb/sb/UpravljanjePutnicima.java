@@ -47,6 +47,7 @@ public class UpravljanjePutnicima {
         return airplanesFacade.preuzmiLetove(icao, odVremena, doVremena);
     }
 
+    // u jednoj tocki zadace pise da treba na kraju napraviti preuzmiLetove, dok se u nekoj drugoj moze skuziti kao da se to ne treba
     public List<PodaciLeta> preuzmiLetoveOpenSky(String icao, int odVremena, int doVremena) {
         OSKlijent osk = new OSKlijent(osUsername, osPassword);
 
@@ -72,10 +73,15 @@ public class UpravljanjePutnicima {
         return airplanesFacade.preuzmiLetove(icao, odVremena, doVremena);
     }
 
+    // popraviti provjeriPreklapanjeLetova, 
     public boolean dodajLet(int putnikId, int avionId) {
         boolean preklapanje = flightsFacade.provjeriPreklapanjeLetova(0, 0, 0);
         if (!preklapanje) {
-            Flights let = new Flights(avionId);
+            Airplanes avion = airplanesFacade.find(avionId);
+            Passangers putnik = passangersFacade.find(putnikId);
+            Flights let = new Flights();
+            let.setAirplane(avion);
+            let.setPassanger(putnik);
             flightsFacade.create(let);
             return true;
         }
