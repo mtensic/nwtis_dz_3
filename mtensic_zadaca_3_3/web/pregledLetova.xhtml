@@ -11,20 +11,20 @@
         <div>
             <h:form>
                 <h:outputLabel for="odVremena" value="Od vremena: "/>
-                <h:inputText id="odVremena"/><br/>
+                <h:inputText id="odVremena" value="#{pregledLetova.odVremena}"/><br/>
 
                 <h:outputLabel for="doVremena" value="Do vremena: "/>
-                <h:inputText id="doVremena"/><br/>
+                <h:inputText id="doVremena" value="#{pregledLetova.doVremena}"/><br/>
             </h:form>
             <h:panelGroup>
-                <h:selectOneListbox value="#{radsAerodromima.odabraniAerodrom}" size="7">    
-                    <f:selectItems value="#{radsAerodromima.aerodromi}" var="putnik" itemLabel="#{a.icao} #{a.naziv}" itemValue="#{a.icao}"/> 
+                <h:selectOneListbox value="#{pregledLetova.odabraniPutnik}" size="7">    
+                    <f:selectItems value="#{pregledLetova.putnici}" var="putnik" itemLabel="#{putnik.firstname} #{putnik.lastname}" itemValue="#{putnik.id}"/> 
                 </h:selectOneListbox> 
             </h:panelGroup>
-
         </div>
+
         <div>
-            <h:commandButton style="margin-top: 10px" id="prijava" value="Preuzmi letove" action="#{login.autentifikacija()}"/>
+            <h:commandButton style="margin-top: 10px" id="preuzmiLetove" value="Preuzmi letove" action="#{pregledLetova.preuzmiLetove()}"/>
         </div>
         <div>
             <h3>Odabani letovi korisnika</h3>
