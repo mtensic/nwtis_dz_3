@@ -3,8 +3,14 @@ package org.foi.nwtis.mtensic.web.zrna;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import org.foi.nwtis.mtensic.ejb.sb.UpravljanjePutnicima;
 import org.foi.nwtis.mtensic.podaci.PodaciLeta;
@@ -80,9 +86,25 @@ public class PregledLetova implements Serializable {
         return "";
     }
 
-    public String preuzmiLetove(int putnikId, int odVremena, int doVremena) {
-       upravljanjePutnicima.preuzmiLetovePutnika(putnikId, odVremena, doVremena);
-       return "";
+    public String preuzmiLetove() {
+        letovi.clear();
+        letovi = upravljanjePutnicima.preuzmiLetovePutnika(odabraniPutnik, pretvoriDatumUSekunde(odVremena), pretvoriDatumUSekunde(doVremena));
+        return "";
+    }
+
+    public int pretvoriDatumUSekunde(String datum) {
+        DateFormat originalFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        Date date = null;
+        try {
+            date = originalFormat.parse(datum);
+        } catch (ParseException ex) {
+            Logger.getLogger(PregledLetova.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (int) date.getTime() / 1000;
+    }
+
+    public List<PodaciLeta> getLetovi() {
+        return letovi;
     }
 
 }
